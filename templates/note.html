@@ -1,0 +1,35 @@
+<!-- The html file for the app design --!>
+
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'Notes/style.css' %}" />
+
+<!DOCTYPE html>
+    <html>
+        <head>
+        </head>
+
+        <body>
+          <h1>Note Taking App</h1>
+          <ul>
+          {% for note in notes.all %}
+               <aside class="note-wrap note-white">
+              <li>{{ note.text }}</li>
+               </aside>
+          {% endfor %}
+        </ul>
+
+        <form method='POST' action=''>{% csrf_token %}
+            {{ form.as_p }}
+            <input type='submit' value='Add note'>
+        </form>
+
+        </body>
+    </html>
+
+
+
+
+
+
+
